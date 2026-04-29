@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>後龍藍莓 | AI 守護的純淨風味</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Sans TC -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        /* 模擬數據呼吸燈效果 */
+        @keyframes pulse-green {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+        .pulse-dot {
+            animation: pulse-green 2s infinite;
+        }
+        /* 自定義捲軸 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e1b4b;
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        // Tailwind 配置
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        indigo: {
+                            900: '#1e1b4b',
+                        },
+                        emerald: {
+                            600: '#059669',
+                        },
+                        slate: {
+                            50: '#f8fafc',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-900 leading-relaxed">
+
+    <!-- 導航欄 -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-indigo-900 rounded-lg flex items-center justify-center text-white">
+                        <i data-lucide="sprout"></i>
+                    </div>
+                    <span class="text-xl font-bold text-indigo-900 tracking-tight">後龍藍莓 Houlong</span>
+                </div>
+                <div class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#monitor" class="hover:text-emerald-600 transition">實時監測</a>
+                    <a href="#timeline" class="hover:text-emerald-600 transition">生長軌跡</a>
+                    <a href="#ai-consult" class="hover:text-emerald-600 transition">AI 諮詢</a>
+                    <a href="#shop" class="hover:text-emerald-600 transition">限定預購</a>
+                </div>
+                <button class="bg-indigo-900 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-indigo-800 transition shadow-lg shadow-indigo-900/20">
+                    立即登入
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center lg:text-left lg:flex items-center">
+            <div class="lg:w-1/2">
+                <span class="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wide text-emerald-600 bg-emerald-50 rounded-full border border-emerald-100">
+                    苗栗後龍產地直送
+                </span>
+                <h1 class="text-5xl lg:text-7xl font-bold text-indigo-900 mb-6 leading-tight">
+                    後龍藍莓：<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-900 to-emerald-600">AI 守護的純淨風味</span>
+                </h1>
+                <p class="text-lg text-slate-600 mb-10 max-w-xl mx-auto lg:mx-0">
+                    砂質土壤孕育，結合物聯網感測技術與 AI 精準分析，我們為您捕捉藍莓最巔峰的甜美時刻。
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="#shop" class="px-8 py-4 bg-indigo-900 text-white rounded-xl font-bold shadow-xl shadow-indigo-900/30 hover:-translate-y-1 transition duration-300">
+                        立即預購產季鮮果
+                    </a>
+                    <a href="#monitor" class="px-8 py-4 bg-white text-indigo-900 border border-slate-200 rounded-xl font-bold hover:bg-slate-50 transition duration-300 flex items-center justify-center gap-2">
+                        <i data-lucide="eye" class="w-5 h-5 text-emerald-600"></i> 查看即時果園
+                    </a>
+                </div>
+            </div>
+            <div class="lg:w-1/2 mt-16 lg:mt-0 relative">
+                <div class="relative w-full aspect-square max-w-lg mx-auto bg-gradient-to-br from-indigo-100 to-emerald-50 rounded-3xl p-8 flex items-center justify-center">
+                    <!-- 模擬高品質產品圖 -->
+                    <div class="bg-white p-4 rounded-2xl shadow-2xl rotate-3">
+                        <img src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?auto=format&fit=crop&q=80&w=800" alt="藍莓" class="rounded-xl w-full h-auto">
+                        <div class="mt-4 flex justify-between items-center">
+                            <div>
+                                <p class="text-xs text-slate-400">當前甜度</p>
+                                <p class="text-xl font-bold text-indigo-900">14.5 Brix</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-xs text-slate-400">平均果徑</p>
+                                <p class="text-xl font-bold text-emerald-600">18.2 mm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Live Monitor Dashboard -->
+    <section id="monitor" class="py-24 bg-white border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-indigo-900 mb-2">AI 智慧產地儀表板</h2>
+                    <p class="text-slate-500">透過 IoT 傳感器每 15 分鐘更新一次數據，透明化生長環境。</p>
+                </div>
+                <div class="flex items-center gap-2 bg-emerald-50 px-4 py-2 rounded-lg">
+                    <span class="w-2 h-2 bg-emerald-600 rounded-full pulse-dot"></span>
+                    <span class="text-sm font-bold text-emerald-600 uppercase tracking-widest">Live Monitoring</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 數據卡片 -->
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-emerald-200 transition group">
+                    <i data-lucide="thermometer" class="w-8 h-8 text-indigo-900 mb-6 group-hover:scale-110 transition"></i>
+                    <p class="text-slate-500 text-sm mb-1">環境溫度</p>
+                    <h3 class="text-4xl font-bold text-indigo-900">26<span class="text-xl font-medium">°C</span></h3>
+                </div>
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-emerald-200 transition group">
+                    <i data-lucide="droplets" class="w-8 h-8 text-indigo-900 mb-6 group-hover:scale-110 transition"></i>
+                    <p class="text-slate-500 text-sm mb-1">空氣濕度</p>
+                    <h3 class="text-4xl font-bold text-indigo-900">65<span class="text-xl font-medium">%</span></h3>
+                </div>
+                <div class="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:border-emerald-200 transition group">
+                    <i data-lucide="beaker" class="w-8 h-8 text-indigo-900 mb-6 group-hover:scale-110 transition"></i>
+                    <p class="text-slate-500 text-sm mb-1">土壤 pH 值</p>
+                    <h3 class="text-4xl font-bold text-indigo-900">5.5<span class="text-xl font-medium">pH</span></h3>
+                </div>
+                <div class="bg-emerald-600 p-8 rounded-3xl text-white shadow-xl shadow-emerald-600/20 hover:-translate-y-1 transition">
+                    <i data-lucide="timer" class="w-8 h-8 text-emerald-100 mb-6"></i>
+                    <p class="text-emerald-100 text-sm mb-1">採收倒數</p>
+                    <h3 class="text-4xl font-bold">12<span class="text-xl font-medium ml-1">Days</span></h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Growth Timeline -->
+    <section id="timeline" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+            <h2 class="text-3xl font-bold text-indigo-900 mb-4">生長軌跡：從花蕾到靛藍</h2>
+            <p class="text-slate-500">記錄這一季後龍藍莓的生長關鍵節點</p>
+        </div>
+        
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-full bg-slate-200 hidden md:block"></div>
+            
+            <div class="space-y-16">
+                <!-- 節點 1 -->
+                <div class="relative md:flex items-center group">
+                    <div class="md:w-1/2 md:pr-12 text-right hidden md:block">
+                        <p class="text-emerald-600 font-bold">2024.03.15</p>
+                        <h4 class="text-xl font-bold text-indigo-900 mt-2">繁盛花期</h4>
+                        <p class="text-slate-500 mt-2">蜜蜂授粉頻率達標，花期健康穩定。</p>
+                    </div>
+                    <div class="absolute left-1/2 -translate-x-1/2 w-8 h-8 bg-white border-4 border-indigo-900 rounded-full z-10 flex items-center justify-center">
+                        <i data-lucide="flower-2" class="w-4 h-4 text-indigo-900"></i>
+                    </div>
+                    <div class="md:w-1/2 md:pl-12 pl-12 md:pl-12">
+                        <div class="md:hidden">
+                            <p class="text-emerald-600 font-bold">2024.03.15</p>
+                            <h4 class="text-xl font-bold text-indigo-900 mt-2">繁盛花期</h4>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 mt-4 md:mt-0">
+                            <img src="https://images.unsplash.com/photo-1546413310-ad1568e53352?auto=format&fit=crop&q=80&w=600" class="rounded-xl grayscale group-hover:grayscale-0 transition duration-500" alt="花期">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 節點 2 -->
+                <div class="relative md:flex flex-row-reverse items-center group">
+                    <div class="md:w-1/2 md:pl-12 text-left hidden md:block">
+                        <p class="text-emerald-600 font-bold">2024.04.10</p>
+                        <h4 class="text-xl font-bold text-indigo-900 mt-2">幼果成長期</h4>
+                        <p class="text-slate-500 mt-2">進入細胞分裂高峰期，充足日照儲存甜度。</p>
+                    </div>
+                    <div class="absolute left-1/2 -translate-x-1/2 w-8 h-8 bg-white border-4 border-emerald-600 rounded-full z-10 flex items-center justify-center">
+                        <i data-lucide="circle-dashed" class="w-4 h-4 text-emerald-600"></i>
+                    </div>
+                    <div class="md:w-1/2 md:pr-12 pl-12 md:pl-0 pr-0 md:pr-12 text-right">
+                         <div class="md:hidden text-left">
+                            <p class="text-emerald-600 font-bold">2024.04.10</p>
+                            <h4 class="text-xl font-bold text-indigo-900 mt-2 text-left">幼果成長期</h4>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 mt-4 md:mt-0">
+                            <img src="https://images.unsplash.com/photo-1615485240384-58237747796d?auto=format&fit=crop&q=80&w=600" class="rounded-xl grayscale group-hover:grayscale-0 transition duration-500" alt="幼果">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Consultation Interface -->
+    <section id="ai-consult" class="py-24 bg-indigo-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 C 20 0 50 0 100 100 Z" fill="white"></path>
+            </svg>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">AI 健康諮詢中心</h2>
+                    <p class="text-indigo-200 text-lg mb-8">
+                        不知道藍莓如何挑選或是適合攝取多少量？讓後龍藍莓 AI 專家為您提供基於數據的建議。
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-indigo-800 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="zap" class="w-5 h-5 text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">精準營養分析</h4>
+                                <p class="text-indigo-300 text-sm">根據您的年齡與用眼習慣，計算黃金攝取比例。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-indigo-800 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="image" class="w-5 h-5 text-emerald-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">視覺品質辨識</h4>
+                                <p class="text-indigo-300 text-sm">上傳照片，AI 即時分析果粉狀態與新鮮度。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 模擬對話框 -->
+                <div class="bg-white rounded-3xl p-6 text-slate-900 shadow-2xl">
+                    <div class="flex items-center gap-3 border-b border-slate-100 pb-4 mb-4">
+                        <div class="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center text-white">
+                            <i data-lucide="bot"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold">Houlong AI Expert</p>
+                            <p class="text-xs text-emerald-600 font-medium">● 智慧諮詢中</p>
+                        </div>
+                    </div>
+                    
+                    <div id="chat-box" class="h-64 overflow-y-auto space-y-4 mb-6 pr-2">
+                        <div class="flex justify-start">
+                            <div class="bg-slate-100 px-4 py-3 rounded-2xl rounded-tl-none max-w-[80%] text-sm text-slate-700">
+                                您好！我是後龍藍莓智慧助理。關於我們的特級藍莓，有什麼我可以幫您的嗎？
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 mb-4">
+                        <button onclick="askAI('藍莓對眼睛的好處？')" class="text-xs border border-slate-200 py-2 rounded-lg hover:bg-slate-50 transition text-indigo-900 font-medium">
+                            👁️ 護眼效果
+                        </button>
+                        <button onclick="askAI('如何保存藍莓？')" class="text-xs border border-slate-200 py-2 rounded-lg hover:bg-slate-50 transition text-indigo-900 font-medium">
+                            ❄️ 保存方式
+                        </button>
+                        <button onclick="askAI('什麼是果粉？')" class="text-xs border border-slate-200 py-2 rounded-lg hover:bg-slate-50 transition text-indigo-900 font-medium">
+                            🍇 關於果粉
+                        </button>
+                        <button onclick="askAI('最佳採收期是什麼時候？')" class="text-xs border border-slate-200 py-2 rounded-lg hover:bg-slate-50 transition text-indigo-900 font-medium">
+                            📅 採收時間
+                        </button>
+                    </div>
+
+                    <div class="relative">
+                        <input type="text" placeholder="輸入您的問題..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        <button class="absolute right-2 top-2 bg-indigo-900 text-white p-2 rounded-lg">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Card -->
+    <section id="shop" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-indigo-900 mb-4">產季限定預購</h2>
+                <p class="text-slate-500">嚴選 18mm 以上特級大果，AI 篩選品質無虞</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-[2rem] border border-slate-100 shadow-xl overflow-hidden flex flex-col md:flex-row">
+                    <div class="md:w-1/2 h-80 md:h-auto relative">
+                        <img src="https://images.unsplash.com/photo-1615485500704-8e990f3900f7?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover" alt="藍莓禮盒">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-indigo-900 flex items-center gap-1">
+                            <i data-lucide="star" class="w-3 h-3 fill-emerald-500 text-emerald-500"></i> AI 品質驗證
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-10 flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-indigo-900 mb-2">後龍特級藍莓禮盒 (12入組)</h3>
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-3xl font-bold text-emerald-600">NT$ 1,280</span>
+                            <span class="text-slate-400 line-through">NT$ 1,500</span>
+                        </div>
+                        
+                        <div class="space-y-4 mb-10">
+                            <div class="flex items-center gap-3 text-sm text-slate-600">
+                                <i data-lucide="truck" class="w-5 h-5 text-indigo-900"></i> 全程冷鏈配送 (Black Cat Express)
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-slate-600">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-indigo-900"></i> 產銷履歷驗證 (AI 溯源)
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-slate-600">
+                                <i data-lucide="ruler" class="w-5 h-5 text-indigo-900"></i> 規格：18mm+ 特大果
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <button class="flex-1 bg-indigo-900 text-white py-4 rounded-xl font-bold hover:bg-indigo-800 transition">立即預購</button>
+                            <button class="w-14 h-14 border border-slate-200 rounded-xl flex items-center justify-center hover:bg-slate-50 transition">
+                                <i data-lucide="shopping-cart" class="text-indigo-900"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-100 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-12 mb-16">
+            <div class="md:col-span-2">
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="w-8 h-8 bg-indigo-900 rounded-lg flex items-center justify-center text-white">
+                        <i data-lucide="sprout"></i>
+                    </div>
+                    <span class="text-xl font-bold text-indigo-900">後龍藍莓 Houlong</span>
+                </div>
+                <p class="text-slate-500 max-w-sm mb-6">
+                    我們致力於利用科技翻轉農業，將苗栗後龍的風土與 AI 的嚴謹結合，為您送上每一口都安心的極致美味。
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-indigo-900 shadow-sm hover:text-emerald-600 transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-indigo-900 shadow-sm hover:text-emerald-600 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-indigo-900 mb-6">快速連結</h4>
+                <ul class="space-y-4 text-sm text-slate-500">
+                    <li><a href="#monitor" class="hover:text-indigo-900 transition">實時數據</a></li>
+                    <li><a href="#timeline" class="hover:text-indigo-900 transition">生長過程</a></li>
+                    <li><a href="#ai-consult" class="hover:text-indigo-900 transition">AI 諮詢</a></li>
+                    <li><a href="#shop" class="hover:text-indigo-900 transition">商品預購</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-indigo-900 mb-6">聯絡資訊</h4>
+                <ul class="space-y-4 text-sm text-slate-500">
+                    <li class="flex gap-2"><i data-lucide="map-pin" class="w-4 h-4"></i> 苗栗縣後龍鎮藍莓大道 101 號</li>
+                    <li class="flex gap-2"><i data-lucide="mail" class="w-4 h-4"></i> hello@houlong-blueberry.com</li>
+                    <li class="flex gap-2"><i data-lucide="phone" class="w-4 h-4"></i> (037) 123-4567</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-200 pt-10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-xs text-slate-400">© 2024 Houlong Blueberry AI Agriculture. All rights reserved.</p>
+            <div class="flex gap-6 text-xs text-slate-400 font-medium">
+                <a href="#" class="hover:text-indigo-900">隱私條款</a>
+                <a href="#" class="hover:text-indigo-900">服務細則</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-white text-indigo-900 rounded-full shadow-2xl flex items-center justify-center border border-slate-200 opacity-0 transition-all duration-300 pointer-events-none hover:-translate-y-1 z-50">
+        <i data-lucide="arrow-up" class="w-6 h-6"></i>
+    </button>
+
+    <script>
+        // 初始化 Lucide 圖標
+        lucide.createIcons();
+
+        // AI 模擬對話邏輯
+        const chatBox = document.getElementById('chat-box');
+        const aiAnswers = {
+            '藍莓對眼睛的好處？': '後龍藍莓富含花青素（Anthocyanin），這是一種強效抗氧化劑，能幫助促進視網膜血液循環，緩解長時間看螢幕造成的眼部疲勞。AI 建議每日攝取量約為 100-150g。',
+            '如何保存藍莓？': '建議採用「原裝冷藏」方式。收到後請儘速放入冰箱（4°C左右），可保存約 7-10 天。食用前再清洗，以避免果粉流失導致保存期限縮短。',
+            '什麼是果粉？': '藍莓表面的白色粉末是「天然果粉」，是果實分泌的天然蠟質，能保護果實不被昆蟲侵害。果粉越多，通常代表新鮮度越高，請安心食用！',
+            '最佳採收期是什麼時候？': '後龍藍莓的最佳產季約在 4 月至 6 月。根據我們的 AI 分析，本批次的最佳甜度巔峰預計在 12 天後，建議現在預訂以確保獲取首批採收果實。'
+        };
+
+        function askAI(question) {
+            // 用戶氣泡
+            const userDiv = document.createElement('div');
+            userDiv.className = 'flex justify-end';
+            userDiv.innerHTML = `
+                <div class="bg-indigo-900 text-white px-4 py-3 rounded-2xl rounded-tr-none max-w-[80%] text-sm">
+                    ${question}
+                </div>
+            `;
+            chatBox.appendChild(userDiv);
+
+            // 模擬打字中
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'flex justify-start';
+            typingDiv.id = 'typing-indicator';
+            typingDiv.innerHTML = `
+                <div class="bg-slate-100 px-4 py-3 rounded-2xl rounded-tl-none max-w-[80%] text-sm text-slate-500 italic">
+                    AI 正在思考...
+                </div>
+            `;
+            chatBox.appendChild(typingDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            setTimeout(() => {
+                chatBox.removeChild(typingDiv);
+                // AI 氣泡
+                const aiDiv = document.createElement('div');
+                aiDiv.className = 'flex justify-start';
+                aiDiv.innerHTML = `
+                    <div class="bg-emerald-50 text-emerald-900 border border-emerald-100 px-4 py-3 rounded-2xl rounded-tl-none max-w-[80%] text-sm">
+                        ${aiAnswers[question] || '這是一個很好的問題！我會儘快為您查詢更多關於這方面的資料。'}
+                    </div>
+                `;
+                chatBox.appendChild(aiDiv);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 1000);
+        }
+
+        // Back to Top 按鈕邏輯
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
